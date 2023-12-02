@@ -1,0 +1,3 @@
+rootProject.name = 'notion-web-framework'
+include 'core-utils-automation'
+
