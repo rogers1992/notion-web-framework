@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'automation.core.utils'
+group = 'automation.core.ui'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.apache.logging.log4j:log4j-core:2.21.0'
-    implementation 'org.apache.logging.log4j:log4j-api:2.21.0'
+    implementation project(":core-utils-automation")
+    implementation 'io.github.bonigarcia:webdrivermanager:5.5.3'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.14.1'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-    implementation 'com.jayway.jsonpath:json-path:2.7.0'
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
