@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/core-ui-automation" />
             <option value="$PROJECT_DIR$/core-utils-automation" />
+            <option value="$PROJECT_DIR$/notion-core-ui-automation" />
           </set>
         </option>
       </GradleProjectSettings>
