@@ -1,4 +1,5 @@
 rootProject.name = 'notion-web-framework'
 include 'core-utils-automation'
 include 'core-ui-automation'
+include 'notion-core-ui-automation'
 

@@ -39,6 +39,7 @@ public class Chrome implements Browser<WebDriverManager>{
         if (UiConfig.getInstance().isHeadlessMode()) {
             chromeOptions.addArguments("--headless=new");
         }
+        chromeOptions.addArguments("--lang=en-GB");
         return chromeOptions;
     }
 }
