@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class StartAtlassianPage extends BasePage {
-    @FindBy(css = "div[class='sc-kqEXUp eJOfJL']")
+    @FindBy(css = "div[class='sc-kAzzGY bxrpKa']")
     private WebElement swithToLabel;
     public boolean isSwitchToLabelDisplayed(){
         return action.isElementDisplayed(swithToLabel);
