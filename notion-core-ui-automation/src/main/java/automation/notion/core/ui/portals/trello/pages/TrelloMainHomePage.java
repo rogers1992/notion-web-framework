@@ -8,7 +8,6 @@ public class TrelloMainHomePage extends BasePage {
     @FindBy(css = "ul[class = 'boards-page-board-section-list']")
     private WebElement workSapce;
 
-
     public String getPageTitleText(){
         return driver.getTitle();
     }

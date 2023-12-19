@@ -8,6 +8,6 @@ public class BoardPage extends BasePage {
     @FindBy(css = "h1[class='HKTtBLwDyErB_o']")
     private WebElement  boardTitle;
     public String getBoardTitle(){
-        return action.getText(boardTitle);
+        return  action.getText(boardTitle);
     }
 }
