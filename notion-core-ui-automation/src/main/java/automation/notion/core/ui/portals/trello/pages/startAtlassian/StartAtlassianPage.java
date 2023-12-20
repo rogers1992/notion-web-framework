@@ -7,7 +7,13 @@ import org.openqa.selenium.support.FindBy;
 public class StartAtlassianPage extends BasePage {
     @FindBy(css = "div[class='sc-kAzzGY bxrpKa']")
     private WebElement swithToLabel;
+    @FindBy(css = "div[class='sc-bbkauy gkisIK']")
+    private WebElement startProductTrelloBtn;
     public boolean isSwitchToLabelDisplayed(){
         return action.isElementDisplayed(swithToLabel);
+    }
+
+    public void clickOnStartProductTrelloButton() {
+        action.click(startProductTrelloBtn);
     }
 }
