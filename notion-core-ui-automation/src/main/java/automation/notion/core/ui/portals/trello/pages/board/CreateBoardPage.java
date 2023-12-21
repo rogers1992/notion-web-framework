@@ -16,13 +16,9 @@ public class CreateBoardPage extends BasePage {
     @FindBy(css = "button[class='hY6kPzdkHFJhfG bxgKMAm3lq5BpA SdamsUKjxSBwGb SEj5vUdI3VvxDc']")
     private WebElement createButton;
     private String boardTitle;
-    public CreateBoardPage(String boardTitle){
-        this.boardTitle = boardTitle;
-
-    }
     public void createBoard(){
-        LoginFromTrelloPage login = new LoginFromTrelloPage();
-        login.loginUserFromTrello();
+        /*LoginFromTrelloPage login = new LoginFromTrelloPage();
+        login.loginUserFromTrello();*/
 
         //checking if home page was loaded
         TrelloMainHomePage homePage = new TrelloMainHomePage();
@@ -32,5 +28,14 @@ public class CreateBoardPage extends BasePage {
             action.setValue(boardTitleField, boardTitle);
             action.click(createButton);
         }
+    }
+    public void clickOnCreateNewBoardButton(){
+        action.click(createBoardBtn);
+    }
+    public void fillOnBoardTitleField(String boardTitle){
+        action.setValue(boardTitleField, boardTitle);
+    }
+    public void clickOnCreateButton(){
+        action.click(createButton);
     }
 }

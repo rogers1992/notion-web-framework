@@ -1,7 +1,8 @@
 package automation.core.ui.webdrives;
 
 public enum WebDriverTypes {
-    CHROME("CHROME");
+    CHROME("CHROME"),
+    FIREFOX("FIREFOX");
     //CHROME_DOCKER("CHROME_DOCKER");
 
     private final String word;

@@ -22,12 +22,14 @@ public class BoardPageTest {
         environmentManager.setUserType(UserTypes.TRELLO_USER_PASSSWORD.val());
 
         //When
-        CreateBoardPage createBoardPage = new CreateBoardPage("BoardTitleTest");
-        createBoardPage.createBoard();
+        CreateBoardPage createBoardPage = new CreateBoardPage();
+        createBoardPage.clickOnCreateNewBoardButton();
+        createBoardPage.fillOnBoardTitleField("BoardTitleTestFromSelenium");
+        createBoardPage.clickOnCreateButton();
         BoardPage boardPageCreated = new BoardPage();
         boardPageCreated.getBoardTitle();
 
         //then
-        Assertions.assertEquals("BoardTitleTest", boardPageCreated.getBoardTitle() );
+        Assertions.assertEquals("BoardTitleTestFromSelenium", boardPageCreated.getBoardTitle() );
     }
 }

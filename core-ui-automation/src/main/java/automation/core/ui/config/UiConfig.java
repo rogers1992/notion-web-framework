@@ -93,7 +93,14 @@ public class UiConfig {
     public String getChromeDriverVersion() {
         return propertiesFileReader.getPropertyValue(CHROME_DRIVER_VERSION.val());
     }
-
+    /**
+     * Gets the Firefox driver version
+     *
+     * @return chrome driver version
+     */
+    public String getFirefoxDriverVersion(){
+        return propertiesFileReader.getPropertyValue(FIREFOX_DRIVER_VERSION.val());
+    }
     /**
      * Gets the download folder.
      *
