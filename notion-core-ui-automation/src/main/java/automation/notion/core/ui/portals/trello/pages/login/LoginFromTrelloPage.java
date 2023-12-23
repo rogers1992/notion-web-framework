@@ -14,8 +14,8 @@ public class LoginFromTrelloPage extends BasePage {
     @FindBy (id = "password")
     private WebElement passwordText;
     public void loginUserFromTrello(){
-        TrelloHomePage trelloHomePage = TrelloHomePage.getInstance();
-        trelloHomePage.goToLogin();
+        /*TrelloHomePage trelloHomePage = TrelloHomePage.getInstance();
+        trelloHomePage.goToLogin();*/
 
         action.setValue(userNameTxt, environmentManager.getUsername());
         action.click(loginBtn);

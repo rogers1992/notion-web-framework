@@ -8,6 +8,7 @@ enum ReservedWords {
     PAGE_LOAD_TIME("pageLoadTimeWait"),
     SLEEP_TIME("sleepWaitTime"),
     CHROME_DRIVER_VERSION("chromeDriverVersion"),
+    FIREFOX_DRIVER_VERSION("firefoxDriverVersion"),
     WIDTH("width"),
     HEIGHT("height"),
     HEADLESS_MODE("headlessMode"),
