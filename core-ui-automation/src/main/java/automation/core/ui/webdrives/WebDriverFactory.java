@@ -37,7 +37,6 @@ public final class WebDriverFactory {
         EnumMap<WebDriverTypes, StrategyGetter<Browser<WebDriverManager>>> driverMap = new EnumMap<>(WebDriverTypes.class);
         driverMap.put(WebDriverTypes.CHROME, Chrome::new);
         driverMap.put(WebDriverTypes.FIREFOX, FireFox::new);
-        //driverMap.put(WebDriverTypes.CHROME_DOCKER, ChromeDocker::new);
         return driverMap;
     }
 }
