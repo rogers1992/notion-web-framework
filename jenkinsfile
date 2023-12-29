@@ -6,7 +6,7 @@ pipeline{
   stages {
     stage("Test"){
       steps{
-        bat 'gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName=$TRELLO_USERNAME -DuserPassword=$TRELLO_PASS'
+        bat 'gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName=${TRELLO_USERNAME} -DuserPassword=${TRELLO_PASS}'
       }
     }
   }
