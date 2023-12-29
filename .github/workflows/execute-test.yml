@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "AT-005" branch
   push:
-    branches: [ "AT-005" ]
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "AT-005" ]
+    branches: [ "dev" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
