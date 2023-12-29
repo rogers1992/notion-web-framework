@@ -1,0 +1,13 @@
+pipeline{
+  agent any
+  triggers {
+    cron('H/05 * * * *')
+  }
+  stages {
+    stage("Test"){
+      steps{
+        bat 'gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName="$TRELLO_USERNAME" -DuserPassword="$TRELLO_PASS"'
+      }
+    }
+  }
+}
