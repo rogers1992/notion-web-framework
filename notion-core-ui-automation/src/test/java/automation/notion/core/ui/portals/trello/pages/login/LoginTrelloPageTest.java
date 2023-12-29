@@ -2,6 +2,7 @@ package automation.notion.core.ui.portals.trello.pages.login;
 
 import automation.core.ui.environment.EnvironmentManager;
 import automation.core.ui.webdrives.WebDriverManager;
+import automation.notion.core.ui.portals.trello.pages.TrelloHomePage;
 import automation.notion.core.ui.portals.trello.pages.TrelloMainHomePage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -20,7 +21,8 @@ public class LoginTrelloPageTest {
         environmentManager.setUserType(UserTypes.TRELLO_USER_PASSSWORD.val());
         //When
         // loginUserPasswordPage = LoginFactory.createLoginPage(PortalWeb.TRELLO, UserTypes.TRELLO_USER_PASSSWORD);
-
+        TrelloHomePage trelloHomePage = TrelloHomePage.getInstance();
+        trelloHomePage.goToLogin();
         LoginFromTrelloPage loginFromtrelloPage = LoginFactory.createLoginFromTrelloPage();
         loginFromtrelloPage.loginUserFromTrello();
 

@@ -72,11 +72,21 @@ public final class EnvironmentManager {
     }
 
     public String getUsername() {
-        return getUserType(FILTER_USERNAME);
+        if(getUserType(FILTER_USERNAME) == ""){
+            return UiConfig.getInstance().getUserName();
+        }
+        else {
+            return getUserType(FILTER_USERNAME);
+        }
     }
 
     public String getPassword() {
-        return getUserType(FILTER_PASSWORD);
+        if(getUserType(FILTER_PASSWORD) == ""){
+            return UiConfig.getInstance().getUserPassword();
+        }
+        else {
+            return getUserType(FILTER_PASSWORD);
+        }
     }
 
     private String getUserType(final String filterName) {
