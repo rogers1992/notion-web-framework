@@ -44,6 +44,8 @@ tasks.register("executeFeature", Test){
         jvmArgs = ["-Dcucumber.plugin=pretty," + "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"]
         jvmArgs = ["-Dcucumber.filter.tags=" + System.getProperty("cucumberTags")]
         jvmArgs = ["-DcucumberName" + environmentName]
+        jvmArgs = ["-DcucumberName" + userName]
+        jvmArgs = ["-DcucumberName" + userPassword]
         testLogging.showStandardStreams = true
     }
 }

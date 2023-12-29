@@ -12,7 +12,9 @@ enum ReservedWords {
     WIDTH("width"),
     HEIGHT("height"),
     HEADLESS_MODE("headlessMode"),
-    DOWNLOADS("downloads");
+    DOWNLOADS("downloads"),
+    USERNAME("userName"),
+    PASSWORD("userPassword");
 
     private final String word;
 

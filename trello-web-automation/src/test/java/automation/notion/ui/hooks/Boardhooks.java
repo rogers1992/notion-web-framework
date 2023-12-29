@@ -16,6 +16,7 @@ public final class Boardhooks {
         CloseBoardPage closeBoardPage = new CloseBoardPage();
         closeBoardPage.clickOnPermanentlyDeleteBoardLink();
         closeBoardPage.clickOnDeleteButton();
+        boardPage.closeBasePage();
 
 
     }

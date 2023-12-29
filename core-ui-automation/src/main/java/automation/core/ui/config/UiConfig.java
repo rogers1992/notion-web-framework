@@ -39,7 +39,22 @@ public class UiConfig {
     public String getEnvironment() {
         return propertiesFileReader.getPropertyValue(ENVIRONMENT_NAME.val());
     }
-
+    /**
+     * Gets the trello userName.
+     *
+     * @return trello userName.
+     */
+    public String getUserName(){
+        return propertiesFileReader.getPropertyValue(USERNAME.val());
+    }
+    /**
+     * Gets the trello userPassword.
+     *
+     * @return trello userPassword.
+     */
+    public String getUserPassword(){
+        return propertiesFileReader.getPropertyValue(PASSWORD.val());
+    }
     /**
      * Gets the current Browser name.
      *

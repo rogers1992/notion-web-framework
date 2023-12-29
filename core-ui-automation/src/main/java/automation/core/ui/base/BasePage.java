@@ -24,4 +24,7 @@ public abstract class BasePage {
         action = new WebDriverActions(driver, wait);
         PageFactory.initElements(driver, this);
     }
+    public void closeBasePage(){
+        driver.close();
+    }
 }
