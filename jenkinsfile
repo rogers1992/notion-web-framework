@@ -4,7 +4,7 @@ pipeline{
   parameters {
     string(name: 'username', defaultValue: "${TRELLO_USERNAME}")
     string(name: 'pass', defaultValue: "${TRELLO_PASS}")
-    string(name: 'browser')
+    string(name: 'browser', defaultValue: "CHROME")
   }
   triggers {
     cron('H H 1,15 1-11 *')
