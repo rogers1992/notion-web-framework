@@ -1,12 +1,17 @@
 pipeline{
   agent any
+
+  parameters {
+    string(name: 'username', defaultValue: "${TRELLO_USERNAME}")
+    string(name: 'pass', defaultValue: "${TRELLO_PASS}")
+
   triggers {
     cron('H H 1,15 1-11 *')
   }
   stages {
     stage("Test"){
       steps{
-        bat 'gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName=${TRELLO_USERNAME} -DuserPassword=${TRELLO_PASS}'
+        bat 'gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName="param.username" -DuserPassword="param.pass"'
       }
     }
   }
