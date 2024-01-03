@@ -46,6 +46,7 @@ tasks.register("executeFeature", Test){
         jvmArgs = ["-DcucumberName" + environmentName]
         jvmArgs = ["-DcucumberName" + userName]
         jvmArgs = ["-DcucumberName" + userPassword]
+        jvmArgs = ["-DcucumberName" + browser]
         testLogging.showStandardStreams = true
     }
 }
