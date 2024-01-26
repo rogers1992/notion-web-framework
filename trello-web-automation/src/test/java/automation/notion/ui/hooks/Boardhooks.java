@@ -6,7 +6,7 @@ import automation.notion.core.ui.portals.trello.pages.board.CloseBoardPage;
 import io.cucumber.java.After;
 
 public final class Boardhooks {
-    @After("@deleteBoard")
+    @After(order = 2, value = "@deleteBoard")
     public void deleteBoard(){
         BoardPage boardPage = new BoardPage();
         boardPage.clickOnShowMenuBoardButton();
@@ -16,7 +16,7 @@ public final class Boardhooks {
         CloseBoardPage closeBoardPage = new CloseBoardPage();
         closeBoardPage.clickOnPermanentlyDeleteBoardLink();
         closeBoardPage.clickOnDeleteButton();
-        boardPage.closeBasePage();
+        //boardPage.closeBasePage();
 
 
     }

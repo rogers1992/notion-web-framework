@@ -15,5 +15,18 @@ pipeline{
         bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName=${params.username} -DuserPassword=${params.pass} -Dbrowser=${params.browser}"""
       }
     }
+    stage('reports') {
+        steps {
+        script {
+                allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'build/allure-results']]
+                ])
+        }
+        }
+    }
   }
 }
