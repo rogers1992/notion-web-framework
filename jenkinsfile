@@ -12,7 +12,7 @@ pipeline{
   stages {
     stage("Test"){
       steps{
-        bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName=${params.username} -DuserPassword=${params.pass} -Dbrowser=${params.browser}"""
+        bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=${params.username} -DuserPassword=${params.pass} -Dbrowser=${params.browser}"""
       }
     }
     stage('reports') {
@@ -23,7 +23,7 @@ pipeline{
                         jdk: '',
                         properties: [],
                         reportBuildPolicy: 'ALWAYS',
-                        results: [[path: '${env.WORKSPACE}/build/allure-results']]
+                        results: [[path: "trello-web-automation/build/allure-results"]]
                 ])
         }
         }
