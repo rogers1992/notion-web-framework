@@ -41,7 +41,7 @@ tasks.register("executeFeature", Test){
     options {
         useDefaultListeners = false
         jvmArgs = ["-Dcucumber.features=${rootProject.rootDir}/trello-web-automation/src/test/resources/features/"]
-        jvmArgs = ["-Dcucumber.plugin=pretty," + "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"]
+        jvmArgs = ["-Dcucumber.plugin=pretty," + "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm," + "rerun:build/rerun.txt"]
         jvmArgs = ["-Dcucumber.filter.tags=" + System.getProperty("cucumberTags")]
         jvmArgs = ["-DcucumberName" + environmentName]
         jvmArgs = ["-DcucumberName" + userName]
@@ -49,4 +49,32 @@ tasks.register("executeFeature", Test){
         jvmArgs = ["-DcucumberName" + browser]
         testLogging.showStandardStreams = true
     }
+}
+
+tasks.register("reExecuteFeature", Test) {
+    doFirst {
+        systemProperties(System.getProperties())
+    }
+    if (isReExecutable()) {
+        outputs.upToDateWhen { false }
+        useTestNG()
+        scanForTestClasses = false
+        options {
+            useDefaultListeners = false
+            jvmArgs = ["-Dcucumber.features=${rootProject.rootDir}/trello-web-automation/src/test/resources/features/"]
+            jvmArgs = ["-Dcucumber.plugin=pretty," + "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"]
+            jvmArgs = ["-Dcucumber.features=@build/rerun.txt"]
+            jvmArgs = ["-DcucumberName" + environmentName]
+            jvmArgs = ["-DcucumberName" + userName]
+            jvmArgs = ["-DcucumberName" + userPassword]
+            jvmArgs = ["-DcucumberName" + browser]
+            testLogging.showStandardStreams = true
+        }
+    }
+
+}
+
+boolean isReExecutable() {
+    File failedScenariosFile = new File("${rootProject.rootDir}/build/rerun.txt")
+    return failedScenariosFile.exists() && !failedScenariosFile.getText().isEmpty()
 }
