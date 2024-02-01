@@ -1,9 +1,9 @@
 pipeline{
   agent any
-
+  environment{
+    user_credentials = credentials('trello_credentials')
+  }
   parameters {
-    string(name: 'username', defaultValue: "${TRELLO_USERNAME}")
-    string(name: 'pass', defaultValue: "${TRELLO_PASS}")
     string(name: 'browser', defaultValue: "CHROME")
   }
   triggers {
@@ -12,7 +12,7 @@ pipeline{
   stages {
     stage("Test"){
       steps{
-        bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=${params.username} -DuserPassword=${params.pass} -Dbrowser=${params.browser}"""
+        bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
       }
     }
     stage('reports') {
