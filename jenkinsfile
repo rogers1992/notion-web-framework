@@ -13,7 +13,6 @@ pipeline{
     stage("Test"){
       steps{
         bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
-        bat """gradle clean trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
       }
     }
     stage('reports') {
