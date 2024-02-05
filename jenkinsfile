@@ -13,6 +13,15 @@ pipeline{
     stage("Test"){
       steps{
         bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
+        script {
+                        allure([
+                                includeProperties: false,
+                                jdk: '',
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: "trello-web-automation/build/allure-results"]]
+                        ])
+                }
       }
     }
     stage('reports') {
