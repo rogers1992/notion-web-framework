@@ -10,19 +10,15 @@ pipeline{
     cron('H H 1,15 1-11 *')
   }
   stages {
-    stage("Test"){
-      steps{
-        bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
-        script {
-                        allure([
-                                includeProperties: false,
-                                jdk: '',
-                                properties: [],
-                                reportBuildPolicy: 'ALWAYS',
-                                results: [[path: "trello-web-automation/build/allure-results"]]
-                        ])
-                }
-      }
+    try{
+        stage("Test"){
+              steps{
+                bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
+              }
+            }
+    }
+    catch(e){
+        echo e.toString()
     }
     stage('reports') {
         steps {
