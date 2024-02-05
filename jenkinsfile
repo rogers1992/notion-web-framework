@@ -17,7 +17,7 @@ pipeline{
     }
     stage("re-execute Test"){
         when{
-            expression{return readFile("/build/rerun.txt").contains("file"}
+            expression{return readFile("/build/rerun.txt").contains("file")}
         }
         Steps{
             bat """gradle clean trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
