@@ -13,15 +13,14 @@ pipeline{
     stage("Test"){
       steps{
         bat """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
+        script{
+                        def fileContents
+                        fileContents = readFile "/build/rerun.txt"
+                        if(fileContents != null){
+                            bat """gradle clean trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
+                        }
+                    }
       }
-    }
-    stage("re-execute Test"){
-        when{
-            expression{return readFile("/build/rerun.txt").contains("file")}
-        }
-        steps{
-            bat """gradle clean trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
-        }
     }
     stage('reports') {
         steps {
