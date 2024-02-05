@@ -19,7 +19,7 @@ pipeline{
         when{
             expression{return readFile("/build/rerun.txt").contains("file")}
         }
-        Steps{
+        steps{
             bat """gradle clean trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
         }
     }
