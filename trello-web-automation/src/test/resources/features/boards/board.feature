@@ -17,4 +17,4 @@
       Examples:
         | nameBoard       | nameBoardCreated |
         | roger1234       | roger1234        |
-        | Board Test Auto | Board Test Auto  |
+        | Board Test Auto | Board Test       |
