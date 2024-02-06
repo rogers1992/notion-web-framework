@@ -20,7 +20,7 @@ pipeline{
     stage("Re-Test"){
               steps{
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                    bat """gradle clean trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
+                    bat """gradle trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@board" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
                 }
               }
         }
