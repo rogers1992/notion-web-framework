@@ -16,5 +16,5 @@
       Then Verify if "<nameBoardCreated>" is displayed
       Examples:
         | nameBoard       | nameBoardCreated |
-        | roger1234       | roger1231        |
-        | Board Test Auto | Board Test Aut   |
+        | roger1234       | roger1234        |
+        | Board Test Auto | Board Test Auto  |
