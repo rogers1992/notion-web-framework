@@ -16,8 +16,7 @@ public class LoginFromTrelloPage extends BasePage {
     public void loginUserFromTrello(){
         /*TrelloHomePage trelloHomePage = TrelloHomePage.getInstance();
         trelloHomePage.goToLogin();*/
-        String value = environmentManager.getUsername();
-        action.setValue(userNameTxt, value);
+        action.setValue(userNameTxt, environmentManager.getUsername());
         action.click(loginBtn);
         action.setValue(passwordText, environmentManager.getPassword());
         action.click(loginBtn);

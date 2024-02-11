@@ -10,7 +10,7 @@ import automation.notion.core.ui.portals.trello.pages.login.UserTypes;
 import io.cucumber.java.Before;
 
 public class LoginHooks {
-    @Before
+    @Before(order = 10000, value = "@loginTrello")
     public void loginTrello(){
         EnvironmentManager environmentManager = EnvironmentManager.getInstance();
         environmentManager.setPortalWeb(PortalWeb.TRELLO.val());

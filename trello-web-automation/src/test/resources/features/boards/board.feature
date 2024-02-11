@@ -8,7 +8,7 @@
       And I click on "Create" button
       Then Verify if "Roger Test Auto" is displayed
 
-    @board @loginTrello @deleteBoard @logout
+    @loginTrello @deleteBoard @logout
     Scenario Outline: Name Board Test
       When I click on "Create new Board" button
       And I fill "<nameBoard>" on Board title field
@@ -17,4 +17,4 @@
       Examples:
         | nameBoard       | nameBoardCreated |
         | roger1234       | roger1234        |
-        | Board Test Auto | Board Test       |
+        | Board Test Auto | Board Test Auto  |
