@@ -4,11 +4,16 @@ import automation.core.ui.config.UiConfig;
 import org.json.simple.JSONObject;
 
 import java.util.Objects;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import static automation.core.utils.json.JsonFileReader.loadJsonObjectFromFile;
 import static automation.core.utils.json.JsonPath.getResults;
 
+
+
 public final class EnvironmentManager {
+    private static final Logger LOGGER = LogManager.getLogger(EnvironmentManager.class.getSimpleName());
     public static final String PORTALS_NAME_FILTER = "Portals[?(@.Name == '%s')]";
     public static final String ENVIRONMENTS_NAME_FILTER = "$.Environments[?(@.Name == '%s')]";
     private static final String USERS_TYPE_FILTER = "Users[?(@.Type == '%s')]";
@@ -32,6 +37,7 @@ public final class EnvironmentManager {
         jsonObject = loadJsonObjectFromFile(ReservedWords.ENVIRONMENT_PATH.val());
         String environmentName = UiConfig.getInstance().getEnvironment();
         jsonPathEnvironmentFilter = String.format(ENVIRONMENTS_NAME_FILTER, environmentName);
+        LOGGER.info("Environment Manager initiated");
     }
 
     /**

@@ -4,11 +4,14 @@ import automation.core.ui.config.UiConfig;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.Duration;
 import java.util.Objects;
 
 public class WebDriverManager {
+    private static final Logger LOGGER = LogManager.getLogger(WebDriverManager.class.getSimpleName());
     private static WebDriverManager instance;
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
@@ -43,6 +46,7 @@ public class WebDriverManager {
         webDriver = webDriverManager.getWebDriver();
         webDriver.manage().window().setSize(new Dimension(uiConfig.getWidthOfBrowser(), uiConfig.getHeightOfBrowser()));
         setDefaultTimeWaits();
+        LOGGER.info("Initiated successfull");
     }
 
     /**

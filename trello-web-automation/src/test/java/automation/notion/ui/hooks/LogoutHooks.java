@@ -5,7 +5,7 @@ import automation.notion.core.ui.portals.trello.pages.accountMenu.AccountMenu;
 import io.cucumber.java.After;
 
 public class LogoutHooks {
-    @After(order = 1)
+    @After(order = 499, value = "@logout")
     public void logout(){
         AccountMenu accountMenu = new AccountMenu();
         accountMenu.openAccountMenu();

@@ -6,7 +6,7 @@ import automation.notion.core.ui.portals.trello.pages.board.CloseBoardPage;
 import io.cucumber.java.After;
 
 public final class Boardhooks {
-    @After(order = 2, value = "@deleteBoard")
+    @After(order = 500, value = "@deleteBoard")
     public void deleteBoard(){
         BoardPage boardPage = new BoardPage();
         boardPage.clickOnShowMenuBoardButton();
