@@ -37,7 +37,7 @@ public final class EnvironmentManager {
         jsonObject = loadJsonObjectFromFile(ReservedWords.ENVIRONMENT_PATH.val());
         String environmentName = UiConfig.getInstance().getEnvironment();
         jsonPathEnvironmentFilter = String.format(ENVIRONMENTS_NAME_FILTER, environmentName);
-        LOGGER.info("Environment Manger initiated");
+        LOGGER.info("Environment Manager initiated");
     }
 
     /**
