@@ -13,7 +13,7 @@ public class CreateBoardPage extends BasePage {
     private WebElement createBoardLabelFromPage;
     @FindBy(css = "input[class = 'nch-textfield__input lsOhPsHuxEMYEb lsOhPsHuxEMYEb VkPAAkbpkKnPst']")
     private WebElement boardTitleField;
-    @FindBy(css = "button[class='hY6kPzdkHFJhfG bxgKMAm3lq5BpA SdamsUKjxSBwGb SEj5vUdI3VvxDc']")
+    @FindBy(css = "button[class='ijFumaLuInvBrL bxgKMAm3lq5BpA SdamsUKjxSBwGb SEj5vUdI3VvxDc']")
     private WebElement createButton;
     private String boardTitle;
     public void createBoard(){
