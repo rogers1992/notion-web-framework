@@ -1,0 +1,41 @@
+pipeline{
+  agent any
+  environment{
+    user_credentials = credentials('trello_credentials')
+  }
+  parameters {
+    string(name: 'browser', defaultValue: "CHROME")
+  }
+  triggers {
+    cron('H H 1,15 1-11 *')
+  }
+  stages {
+    stage("Test"){
+          steps{
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+                sh """gradle clean trello-web-automation:executeFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
+            }
+          }
+    }
+    stage("Re-Test"){
+              steps{
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+                    sh """gradle trello-web-automation:reExecuteFeature -DenvironmentName=QA -DcucumberTags="@regression" -DuserName=$user_credentials_USR -DuserPassword=$user_credentials_PSW -Dbrowser=${params.browser}"""
+                }
+              }
+        }
+    stage('reports') {
+        steps {
+            script {
+                    allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: "trello-web-automation/build/allure-results"]]
+                    ])
+            }
+        }
+    }
+  }
+}
